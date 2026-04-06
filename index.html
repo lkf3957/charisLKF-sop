@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHARIS 專屬美學處方籤 (含圖片版)</title>
+    <style>
+        /* 基礎全站設定 (延續奶茶色系) */
+        body {
+            font-family: 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+            background-color: #FAFAF7;
+            color: #3E3A39;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 100px; /* 增加底部空間供固定按鈕使用 */
+        }
+
+        /* 頂部 Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background-color: #FAFAF7;
+        }
+        .team-name {
+            color: #B89B72;
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+        .brand-name {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            color: #594A42;
+            margin: 0;
+        }
+
+        /* 內容區塊 */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 產品列表樣式 - 加入圖片支持 */
+        #productList {
+            margin-top: 20px;
+        }
+        .product-item {
+            background: #fff;
+            padding: 15px 20px; /* 縮減上下 padding，讓版面更緊湊 */
+            border-bottom: 1px solid #F2EFE9;
+            display: flex;
+            align-items: center; /* 垂直居中 */
+            transition: all 0.3s ease;
+        }
+
+        /* 圖片容器樣式 */
+        .product-image-wrapper {
+            width: 70px; /* 圖片區域寬度 */
+            height: 70px; /* 圖片區域高度 */
+            flex-shrink: 0; /* 防止圖片被壓縮 */
+            margin-right: 15px; /* 與文字的間距 */
+            border-radius: 8px; /* 柔和圓角 */
+            overflow: hidden; /* 確保圖片不超出圓角 */
+            background-color: #F8F5F1; /* 圖片背景底色 (淺奶茶色) */
+            border: 1px solid #EEEAE5; /* 微細邊框 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 確保整張產品圖都顯示出來，不被裁剪 */
+            padding: 5px; /* 圖片內部留白 */
+        }
+        /* 圖片佔位符樣式 (沒圖片時顯示數字或文字) */
+        .image-placeholder {
+            font-size: 24px;
+            color: #D6CFCE;
+            font-weight: 100;
+        }
+
+        /* 文字內容區樣式 */
+        .product-info {
+            flex-grow: 1;
+        }
+        .product-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #594A42;
+            margin-bottom: 4px;
+        }
+        .product-usage {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.4;
+        }
+
+        /* Checkbox 樣式 */
+        .checkbox-wrapper {
+            margin-left: 10px;
+        }
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #594A42;
+            cursor: pointer;
+        }
+
+        /* 其他原有樣式 (膚質選擇、底部按鈕、處方籤標頭) */
+        .section-title { text-align: center; color: #B89B72; font-size: 14px; margin: 30px 0 15px; letter-spacing: 1px; }
+        .form-group { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 20px; }
+        input[type="text"] { width: 100%; padding: 12px; border: 1px solid #E6DFD8; border-radius: 4px; box-sizing: border-box; font-size: 16px; color: #3E3A39; background-color: #FAFAF7; }
+        .radio-group { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
+        .radio-group label { padding: 8px 18px; border: 1px solid #B89B72; border-radius: 20px; color: #B89B72; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .radio-group input[type="radio"] { display: none; }
+        .radio-group input[type="radio"]:checked + label { background-color: #B89B72; color: #fff; }
+
+        .footer-bar { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(89, 74, 66, 0.95); backdrop-filter: blur(5px); padding: 15px 0 20px; text-align: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 100; }
+        .generate-btn { background-color: transparent; color: #fff; border: 1px solid #B89B72; padding: 12px 35px; font-size: 16px; letter-spacing: 2px; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+        .generate-btn:hover { background-color: #B89B72; }
+
+        .prescription-header { display: none; text-align: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid #E6DFD8; }
+        
+        /* 截圖/列印模式 (關鍵設定) */
+        body.print-mode { background-color: #fff; padding-bottom: 20px; }
+        body.print-mode .hide-on-print { display: none !important; }
+        body.print-mode .container { max-width: 100%; padding: 40px 30px; }
+        body.print-mode .prescription-header { display: block; }
+        body.print-mode .product-item { border: none; padding: 12px 0; background: transparent; }
+        body.print-mode .product-image-wrapper { background-color: transparent; border: 1px solid #F2EFE9; }
+    </style>
+</head>
+<body>
+
+    <div class="header hide-on-print">
+        <div class="team-name">廖 貫 坊 首 席 團 隊</div>
+        <h1 class="brand-name">C H A R I S</h1>
+    </div>
+
+    <div class="container">
+        
+        <div class="prescription-header">
+            <h2 style="color:#594A42; letter-spacing: 3px; margin:0 0 10px 0; font-weight: 300;">專屬美學處方籤</h2>
+            <div id="display-client-info" style="color:#888; font-size:14px; line-height: 1.6;"></div>
+        </div>
+
+        <div class="form-group hide-on-print">
+            <input type="text" id="clientName" placeholder="請輸入客戶姓名或暱稱">
+            <div class="radio-group">
+                <input type="radio" id="skinNormal" name="skinType" value="normal" checked onchange="checkSkinType()">
+                <label for="skinNormal">一般肌</label>
+                <input type="radio" id="skinSensitive" name="skinType" value="sensitive" onchange="checkSkinType()">
+                <label for="skinSensitive">敏感肌 / 痘痘肌</label>
+            </div>
+        </div>
+
+        <div class="section-title hide-on-print">選擇所需保養步驟</div>
+
+        <div id="productList">
+            
+            <div class="product-item" data-id="item1">
+                <div class="product-image-wrapper">
+                    <div class="image-placeholder">C</div> 
+                </div>
+                <div class="product-info">
+                    <div class="product-name">潔顏粉</div>
+                    <div class="product-usage">純水濕紙巾輕拭後，起泡洗淨全臉</div>
+                </div>
+                <div class="checkbox-wrapper hide-on-print">
+                    <input type="checkbox" class="product-check" checked>
+                </div>
+            </div>
+
+            <div class="product-item" data-id="item2">
+                <div class="product-image-wrapper">
+                    <div class="image-placeholder">1</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">1號 多肽水</div>
+                    <div class="product-usage">全臉噴3下 (按到底)，隨時加強補水</div>
+                </div>
+                <div class="checkbox-wrapper hide-on-print">
+                    <input type="checkbox" class="product-check" checked>
+                </div>
+            </div>
+
+            <div class="product-item" data-id="item4">
+                <div class="product-image-wrapper">
+                    <div class="image-placeholder">钻</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">鑽石精華</div>
+                    <div class="product-usage">按8下 (按到底)，均勻按壓全臉</div>
+                </div>
+                <div class="checkbox-wrapper hide-on-print">
+                    <input type="checkbox" class="product-check" checked>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-bar hide-on-print">
+        <button class="generate-btn" onclick="generatePrescription()">✨ 產生專屬處方籤</button>
+    </div>
+
+    <script>
+        // 敏感肌防呆、生成截圖畫面邏輯 (同前一版，略作優化)
+        function checkSkinType() {
+            const isSensitive = document.getElementById('skinSensitive').checked;
+            const products = document.querySelectorAll('.product-item');
+            
+            // 此處可擴充具體哪些 data-id 的產品需要灰階/停用
+            // 示範暫略
+        }
+
+        function generatePrescription() {
+            const name = document.getElementById('clientName').value || '貴賓';
+            const skinType = document.getElementById('skinNormal').checked ? '一般肌膚' : '敏感肌理';
+            const date = new Date().toLocaleDateString('zh-TW');
+            
+            document.getElementById('display-client-info').innerHTML = 
+                `廖貫坊首席團隊 為 <strong>${name}</strong> 訂製<br>肌膚狀態：${skinType} | 日期：${date}`;
+
+            const products = document.querySelectorAll('.product-item');
+            products.forEach(item => {
+                const checkbox = item.querySelector('.product-check');
+                if(!checkbox.checked) {
+                    item.style.display = 'none';
+                }
+            });
+
+            document.body.classList.add('print-mode');
+            window.scrollTo(0, 0); // 確保從頭開始截圖
+            
+            setTimeout(() => {
+                alert('✨ 處方籤已生成！您現在可以直接手機截圖傳送給客戶。重新整理網頁即可恢復編輯。');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
