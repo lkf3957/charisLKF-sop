@@ -37,22 +37,22 @@
 
         /* 產品列表樣式 */
         .product-item { background: #fff; padding: 15px; border-bottom: 1px solid #F2EFE9; display: flex; align-items: center; transition: all 0.3s ease; }
-        .product-image-wrapper { width: 55px; height: 55px; flex-shrink: 0; margin-right: 15px; border-radius: 8px; background-color: #F8F5F1; border: 1px solid #EEEAE5; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #D6CFCE; font-weight: 100; }
+        .product-image-wrapper { width: 50px; height: 50px; flex-shrink: 0; margin-right: 15px; border-radius: 8px; background-color: #F8F5F1; border: 1px solid #EEEAE5; display: flex; align-items: center; justify-content: center; font-size: 16px; color: #D6CFCE; font-weight: 100; }
         .product-info { flex-grow: 1; }
         .product-name { font-size: 16px; font-weight: bold; color: #594A42; margin-bottom: 4px; display: flex; align-items: center; gap: 10px;}
-        .product-usage { font-size: 13px; color: #888; line-height: 1.4; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 5px;}
+        .product-usage { font-size: 13px; color: #888; line-height: 1.5; margin-top: 5px;}
         .checkbox-wrapper { margin-left: 10px; }
         .checkbox-wrapper input[type="checkbox"] { width: 18px; height: 18px; accent-color: #594A42; cursor: pointer; }
 
         /* 數量微調鍵 (Stepper) */
-        .stepper { display: inline-flex; align-items: center; background: #FAFAF7; border: 1px solid #E6DFD8; border-radius: 4px; overflow: hidden; }
-        .stepper-btn { background: none; border: none; padding: 2px 8px; cursor: pointer; font-size: 14px; color: #594A42; }
+        .stepper { display: inline-flex; align-items: center; background: #FAFAF7; border: 1px solid #E6DFD8; border-radius: 4px; overflow: hidden; margin: 0 4px; vertical-align: middle; }
+        .stepper-btn { background: none; border: none; padding: 2px 6px; cursor: pointer; font-size: 14px; color: #594A42; }
         .stepper-btn:hover { background: #E6DFD8; }
-        .stepper-val { width: 30px; text-align: center; border: none; background: transparent; font-size: 13px; color: #594A42; pointer-events: none; padding: 0;}
+        .stepper-val { width: 25px; text-align: center; border: none; background: transparent; font-size: 13px; color: #594A42; pointer-events: none; padding: 0;}
 
         /* 修護指南與貼心提醒區塊 */
-        .guide-block { background: #fff; padding: 15px 20px; border-bottom: 1px solid #F2EFE9; }
-        .dynamic-greeting { color:#594A42; font-size:14px; font-weight: bold; margin-bottom: 10px; display: none; }
+        .guide-block { background: #fff; padding: 15px 20px; border-bottom: 1px solid #F2EFE9; font-size: 14px; color: #594A42; line-height: 1.6; }
+        .dynamic-greeting { color:#B89B72; font-size:15px; font-weight: bold; margin-bottom: 5px; display: none; }
         
         /* 底部固定欄 */
         .footer-bar { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(89, 74, 66, 0.95); backdrop-filter: blur(5px); padding: 15px 0 20px; text-align: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 100; }
@@ -61,27 +61,38 @@
         .return-bar { display: none; }
         .btn-back { background-color: #F8F5F1; color: #594A42; border: 1px solid #E6DFD8; padding: 12px 30px; border-radius: 25px; font-size: 15px; cursor: pointer; font-weight: bold; margin-top: 20px; }
 
-        /* 截圖模式 */
+        /* 卡片化圖文排版 (針對 15天 & 注意事項) */
+        .visual-card { display: none; background: #fff; border-radius: 10px; overflow: hidden; margin-top: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #E6DFD8; }
+        .card-header { background: #594A42; color: #fff; text-align: center; padding: 12px; font-size: 16px; letter-spacing: 2px; }
+        .card-body { padding: 20px; background: #FAFAF7; }
+        .split-layout { display: flex; gap: 15px; margin-top: 15px; }
+        .split-col { flex: 1; background: #fff; border: 1px solid #E6DFD8; border-radius: 6px; padding: 15px; text-align: center; }
+        .split-title { font-weight: bold; color: #B89B72; border-bottom: 1px dashed #E6DFD8; padding-bottom: 8px; margin-bottom: 10px; font-size: 15px;}
+        .split-text { font-size: 13px; color: #594A42; line-height: 1.8; text-align: left;}
+        
+        .warning-list { padding-left: 20px; font-size: 14px; color: #594A42; line-height: 1.8; margin: 0; }
+        .warning-list li { margin-bottom: 6px; }
+        .warning-highlight { background: #FFF4F4; border: 1px solid #FADCDC; padding: 12px; border-radius: 6px; margin-top: 15px; text-align: center; color: #D9534F; font-weight: bold; font-size: 14px; line-height: 1.6; }
+
+        /* 截圖模式優化 */
         .prescription-header { display: none; text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #E6DFD8; }
-        .precautions-block { display: none; background: #FAFAF7; padding: 20px; border-radius: 8px; margin-top: 30px; border: 1px dashed #B89B72; }
-        .precautions-block h3 { color: #594A42; margin-top: 0; font-size: 16px; text-align: center; border-bottom: 1px solid #E6DFD8; padding-bottom: 10px;}
-        .precautions-block ul { padding-left: 20px; font-size: 13px; color: #594A42; line-height: 1.6; }
         
         body.print-mode { background-color: #fff; padding-bottom: 20px; }
         body.print-mode .hide-on-print { display: none !important; }
         body.print-mode .container { max-width: 100%; padding: 30px 20px 60px; }
         body.print-mode .prescription-header { display: block; }
-        body.print-mode .precautions-block { display: block; }
         body.print-mode .dynamic-greeting { display: block; }
+        body.print-mode .visual-card { display: block; }
         
         body.print-mode .tab-content { display: block !important; opacity: 1; }
         body.print-mode .product-item { border: none; padding: 8px 0; background: transparent; }
-        body.print-mode .product-image-wrapper { background-color: transparent; border: 1px solid #F2EFE9; width: 40px; height: 40px; font-size: 14px;}
-        body.print-mode .section-title { background: transparent; border-bottom: 1px solid #E6DFD8; padding: 5px 0; border-left: none; margin-top: 15px; }
+        body.print-mode .product-image-wrapper { background-color: transparent; border: 1px solid #F2EFE9; width: 38px; height: 38px; font-size: 13px;}
+        body.print-mode .section-title { background: transparent; border-bottom: 1px solid #E6DFD8; padding: 5px 0; border-left: none; margin-top: 20px; color: #594A42; }
         body.print-mode .guide-block { border: none; padding: 10px 0; background: transparent; }
         body.print-mode .return-bar { display: block; text-align: center; margin-top: 40px; border-top: 1px dashed #E6DFD8; padding-top: 20px; }
+        
         body.print-mode .stepper-btn { display: none; }
-        body.print-mode .stepper { border: none; background: transparent; font-weight: bold; }
+        body.print-mode .stepper { border: none; background: transparent; font-weight: bold; margin: 0 2px; }
         body.print-mode .stepper-val { font-size: 14px; font-weight: bold; width: auto;}
         body.print-mode select.print-replace { display: none; }
         body.print-mode .print-text { display: inline-block; font-weight: bold; color: #594A42; }
@@ -141,7 +152,7 @@
                 <div class="product-item"><div class="product-image-wrapper">水</div><div class="product-info"><div class="product-name">多肽水</div><div class="product-usage">全臉噴 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="3" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">3</span> 下</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">安</div><div class="product-info"><div class="product-name">Q肌底安瓶</div><div class="product-usage">全臉按壓 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="2" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">2</span> 下</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">透</div><div class="product-info"><div class="product-name">透明質酸精華</div><div class="product-usage">全臉按壓 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="3" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">3</span> 下</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
-                <div class="product-item sensitive-item"><div class="product-image-wrapper">C</div><div class="product-info"><div class="product-name">維他命C精華</div><div class="product-usage">全臉按壓 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="1" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">1</span> 下 (敏感肌暫不使用)</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item sensitive-item"><div class="product-image-wrapper">C</div><div class="product-info"><div class="product-name">維他命C精華</div><div class="product-usage">全臉按壓 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="1" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">1</span> 下 (敏感肌不使用)</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">修</div><div class="product-info"><div class="product-name">再生修護精華</div><div class="product-usage">全臉按壓 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="1" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">1</span> 下</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">肽</div><div class="product-info">
                     <div class="product-name hide-on-print"><select class="print-replace" style="margin:0; padding:5px; width:auto; font-weight:bold; color:#594A42;"><option value="多肽霜">多肽霜</option><option value="Q肌底前導精華">Q肌底前導精華</option></select></div>
@@ -151,31 +162,38 @@
             
             <div class="section-group">
                 <div class="section-title">日/夜間進階保養</div>
-                <div class="product-item"><div class="product-image-wrapper">早</div><div class="product-info"><div class="product-name">早上保養步驟</div><div class="product-usage" style="color:#B89B72; font-weight:bold;">保濕修護霜 ➔ 雪顏淨白霜 ➔ 防曬 ➔ BB霜 ➔ CB霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
-                <div class="product-item"><div class="product-image-wrapper">晚</div><div class="product-info"><div class="product-name">夜間保養步驟</div><div class="product-usage" style="color:#B89B72; font-weight:bold;">保濕修護霜 ➔ 雪顏淨白霜 ➔ CB霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item"><div class="product-image-wrapper">早</div><div class="product-info"><div class="product-name">早上保養步驟</div><div class="product-usage" style="color:#B89B72; font-weight:bold;">保濕修護霜 ➔ 淨白雪顏霜 ➔ 防曬霜 ➔ BB霜 ➔ CB霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item"><div class="product-image-wrapper">晚</div><div class="product-info"><div class="product-name">夜間保養步驟</div><div class="product-usage" style="color:#B89B72; font-weight:bold;">保濕修護霜 ➔ 淨白雪顏霜 ➔ CB霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
             </div>
         </div>
 
         <div id="tab-diamond" class="tab-content">
             <div class="section-group">
-                <div class="section-title">✨種鑽前準備提醒✨</div>
+                <div class="section-title">✨種鑽前準備產品與工具✨</div>
                 <div class="guide-block dynamic-greeting">親愛的 <span class="dynamic-username">貴賓</span> 種鑽當然須攜帶以下保養品～</div>
+                
                 <div class="product-item"><div class="product-image-wrapper">1</div><div class="product-info"><div class="product-name">潔顏粉</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">2</div><div class="product-info"><div class="product-name">多肽水</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">3</div><div class="product-info"><div class="product-name">再生精華</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">4</div><div class="product-info"><div class="product-name">鑽石4件套組 (crystal heart)</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
-                <div class="product-item"><div class="product-image-wrapper">5</div><div class="product-info"><div class="product-name">2號滋養面膜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                
+                <div class="product-item"><div class="product-image-wrapper">5</div><div class="product-info">
+                    <div class="product-name">2號滋養面膜</div>
+                    <div class="product-usage" style="color:#B89B72;">💡 貼心提醒：種鑽前七天每天晚上敷10分鐘 (早晚敷效果更好呦！)</div>
+                </div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                
+                <div class="product-item sensitive-item"><div class="product-image-wrapper">角</div><div class="product-info">
+                    <div class="product-name">1號去角質 (種鑽前一天使用)</div>
+                    <div class="product-usage" style="color:#B89B72;">💡 貼心提醒：正常肌可輕搓，敏感肌薄敷10分鐘洗掉即可。</div>
+                </div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                
                 <div class="product-item"><div class="product-image-wrapper">6</div><div class="product-info"><div class="product-name">防曬霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">7</div><div class="product-info"><div class="product-name">已用過的CB霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 
-                <div class="guide-block">
-                    <p style="color:#B89B72; font-weight:bold; margin-top:0; font-size: 14px;">🔸貼心小提醒：</p>
-                    <ul style="padding-left: 20px; font-size: 13px; color: #594A42; line-height: 1.6; margin-bottom:0;">
-                        <li>要種鑽前七天每天晚上敷2號面膜（10分鐘）⚠️早晚敷效果更好呦。</li>
-                        <li>種鑽前一天請先去角質(1號面膜)<br>• <span style="color:#B89B72">正常肌</span>可輕搓<br>• <span style="color:#B89B72">敏感肌</span>薄敷10分鐘洗掉即可</li>
-                        <li>可自行攜帶髮帶、洗臉機，讓保養流程更順手💆‍♀️</li>
-                    </ul>
-                </div>
+                <div class="product-item"><div class="product-image-wrapper">工</div><div class="product-info">
+                    <div class="product-name">髮帶 / 洗臉機</div>
+                    <div class="product-usage" style="color:#B89B72;">💆‍♀️ 貼心提醒：可自行攜帶，讓保養流程更順手。</div>
+                </div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
             </div>
 
             <div class="section-group">
@@ -196,67 +214,105 @@
                 <div class="product-item"><div class="product-image-wrapper">1</div><div class="product-info"><div class="product-name">潔顏粉</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">2</div><div class="product-info"><div class="product-name">多肽水</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">3</div><div class="product-info"><div class="product-name">2號營養面膜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
-                <div class="product-item"><div class="product-image-wrapper">4</div><div class="product-info"><div class="product-name">Q基底</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item"><div class="product-image-wrapper">4</div><div class="product-info"><div class="product-name">Q肌底</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">5</div><div class="product-info"><div class="product-name">透明質酸</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">6</div><div class="product-info"><div class="product-name">維C三件組</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">7</div><div class="product-info"><div class="product-name">保濕修護</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">8</div><div class="product-info"><div class="product-name">CB霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">9</div><div class="product-info"><div class="product-name">防曬霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
                 <div class="product-item"><div class="product-image-wrapper">10</div><div class="product-info"><div class="product-name">BB霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
-                <div class="guide-block">
-                    <p style="color:#B89B72; font-weight:bold; margin-top:0; font-size: 14px;">🔸貼心小提醒：</p>
-                    <p style="font-size: 13px; color: #594A42; margin-bottom:0;">可自行攜帶髮帶、洗臉機，讓保養流程更順手💆‍♀️</p>
-                </div>
+                <div class="product-item"><div class="product-image-wrapper">工</div><div class="product-info">
+                    <div class="product-name">髮帶 / 洗臉機</div>
+                    <div class="product-usage" style="color:#B89B72;">💆‍♀️ 貼心提醒：可自行攜帶，讓保養流程更順手。</div>
+                </div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
             </div>
 
             <div class="section-group">
                 <div class="section-title">💎卸鑽流程：清潔 (當天照這樣做)</div>
-                <div class="product-item"><div class="product-image-wrapper">1</div><div class="product-info"><div class="product-name">先擦拭乾淨</div><div class="product-usage">用「水紙巾」把臉上殘留物輕輕擦掉 (不要用力摩擦)</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
-                <div class="product-item"><div class="product-image-wrapper">2</div><div class="product-info"><div class="product-name">潔顏粉清潔</div><div class="product-usage">
-                    洗 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="2" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">2</span> 次
-                    (在臉上停留、溶解，✅<span style="color:#d9534f; font-weight:bold;">不要推、不要搓</span>)
+                <div class="product-item"><div class="product-image-wrapper">1</div><div class="product-info"><div class="product-name">1️⃣ 先擦拭乾淨</div><div class="product-usage">用水紙巾把殘留物輕輕擦掉 (不要用力摩擦)</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item"><div class="product-image-wrapper">2</div><div class="product-info"><div class="product-name">2️⃣ 潔顏粉清潔</div><div class="product-usage">
+                    洗 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="2" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">2</span> 次 
+                    (讓粉停留溶解，✅<span style="color:#d9534f; font-weight:bold;">不要推、不要搓</span>)
                 </div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
-                <div class="product-item"><div class="product-image-wrapper">3</div><div class="product-info"><div class="product-name">前導保養：多肽水</div><div class="product-usage">
+                <div class="product-item"><div class="product-image-wrapper">3</div><div class="product-info"><div class="product-name">3️⃣ 前導保養：多肽水</div><div class="product-usage">
                     全臉噴 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="3" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">3</span>~4下
                 </div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
-                <div class="product-item"><div class="product-image-wrapper">3</div><div class="product-info"><div class="product-name">前導保養：再生精華</div><div class="product-usage">
+                
+                <div class="product-item sensitive-item"><div class="product-image-wrapper">去</div><div class="product-info"><div class="product-name">進階：1號去角質</div><div class="product-usage">敷3-5分鐘洗掉 (敏感肌暫不使用)</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                
+                <div class="product-item"><div class="product-image-wrapper">3</div><div class="product-info"><div class="product-name">3️⃣ 前導保養：再生精華</div><div class="product-usage">
                     按壓 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="1" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">1</span> 下
                 </div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
-                <div class="product-item"><div class="product-image-wrapper">4</div><div class="product-info"><div class="product-name">敷 2 號面膜</div><div class="product-usage">敷 10 分鐘後洗掉就完成囉✨</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item"><div class="product-image-wrapper">4</div><div class="product-info"><div class="product-name">4️⃣ 敷 2 號面膜</div><div class="product-usage">敷 10 分鐘後洗掉就完成囉✨</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
             </div>
 
             <div class="section-group">
-                <div class="section-title">卸鑽 SOP：後續滋養防護</div>
-                <div class="product-item"><div class="product-image-wrapper">養</div><div class="product-info"><div class="product-name">滋養步驟</div><div class="product-usage">多肽水 ➔ Q肌底 ➔ 玻尿酸 ➔ Vit C ➔ 滋潤 ➔ 多肽霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
-                <div class="product-item"><div class="product-image-wrapper">護</div><div class="product-info"><div class="product-name">防護步驟</div><div class="product-usage">保濕霜 ➔ (夜間保養到此) ➔ CB霜/防曬/BB</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="section-title">💎卸鑽流程：滋養</div>
+                <div class="product-item"><div class="product-image-wrapper">水</div><div class="product-info"><div class="product-name">多肽水</div><div class="product-usage">全臉噴 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="3" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">3</span> 下</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item"><div class="product-image-wrapper">安</div><div class="product-info"><div class="product-name">Q肌底安瓶</div><div class="product-usage">按壓 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="2" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">2</span> 下</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item"><div class="product-image-wrapper">透</div><div class="product-info"><div class="product-name">透明質酸精華</div><div class="product-usage">按壓 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="3" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">3</span> 下</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item sensitive-item"><div class="product-image-wrapper">C</div><div class="product-info"><div class="product-name">維他命C精華</div><div class="product-usage">按壓 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="1" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">1</span> 下</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item"><div class="product-image-wrapper">修</div><div class="product-info"><div class="product-name">再生修護精華</div><div class="product-usage">按壓 <div class="stepper hide-on-print"><button class="stepper-btn" onclick="step(this, -1)">-</button><input class="stepper-val" value="1" readonly><button class="stepper-btn" onclick="step(this, 1)">+</button></div><span class="print-text">1</span> 下</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item"><div class="product-image-wrapper">肽</div><div class="product-info"><div class="product-name">多肽霜 / Q肌底霜</div><div class="product-usage">均勻塗抹</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+            </div>
+
+            <div class="section-group">
+                <div class="section-title">💎卸鑽流程：防護</div>
+                <div class="product-item"><div class="product-image-wrapper">護</div><div class="product-info"><div class="product-name">保濕修護霜</div><div class="product-usage">封存營養</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
+                <div class="product-item"><div class="product-image-wrapper">防</div><div class="product-info"><div class="product-name">CB霜 / 防曬 / BB</div><div class="product-usage">依需求薄擦 (夜間保養擦至CB霜即可)</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check" checked></div></div>
             </div>
             
-            <div class="section-group">
-                <div class="section-title" style="background:#B89B72; color:#fff;">卸鑽後 15 天黃金修護指南</div>
-                <div class="guide-block">
-                    <p style="margin-top:0; color:#594A42; font-weight:bold; line-height:1.6; font-size:15px; text-align:justify;">
-                        卸完鑽石15天內，仍然是代謝排毒期，DNA生長期細胞活化後需要大量補水及營養，基礎保養與修護是很重要的，<span style="color:#B89B72;">要增加透明質酸精華及保濕修護霜的量。</span>
+            <div class="visual-card">
+                <div class="card-header">卸鑽後 15 天內要做的事</div>
+                <div class="card-body">
+                    <p style="margin-top:0; font-weight:bold; line-height:1.6; text-align:center; color:#594A42;">
+                        卸完鑽石15天內，依然是代謝排毒期，<br>DNA生長期細胞活化後需要大量補水及營養。
                     </p>
+                    <p style="text-align:center; color:#D9534F; font-weight:bold; font-size:15px; margin-bottom:0;">
+                        基礎保養與修護是很重要的，<br>要增加「透明質酸精華」及「保濕修護霜」的量。
+                    </p>
+                    
+                    <div class="split-layout">
+                        <div class="split-col">
+                            <div class="split-title">一般肌膚</div>
+                            <div class="split-text">
+                                <span style="background:#E6DFD8; padding:2px 6px; border-radius:4px; font-weight:bold;">5-7天</span> 使用去角質面膜一次<br><br>
+                                <span style="background:#E6DFD8; padding:2px 6px; border-radius:4px; font-weight:bold;">每天</span> 敷水潤滋養面膜<br><br>
+                                正常保養程序<br>透明質酸精華 (量多)<br>保濕修護霜 (量多)
+                            </div>
+                        </div>
+                        <div class="split-col">
+                            <div class="split-title">敏感肌膚</div>
+                            <div class="split-text">
+                                <span style="background:#E6DFD8; padding:2px 6px; border-radius:4px; font-weight:bold;">兩週</span> 去角質 <span style="color:#D9534F; font-weight:bold;">暫不使用</span><br><br>
+                                <span style="background:#E6DFD8; padding:2px 6px; border-radius:4px; font-weight:bold;">每天</span> 敷水潤滋養面膜<br><br>
+                                正常保養程序<br>(維他命C精華 <span style="color:#D9534F; font-weight:bold;">暫不使用</span>)<br>透明質酸精華 (量多)<br>保濕修護霜 (量多)
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="precautions-block">
-            <h3>⚠️ 種鑽後溫馨提醒</h3>
-            <ul>
-                <li>【5天內用純水水紙巾擦拭臉、不可用潔顏粉、洗面乳洗臉】</li>
-                <li>【避免喝酒及含酒精成分的食物、抽菸】</li>
-                <li>【避免吃海鮮、甲殼類的食物】</li>
-                <li>【避免吃辛辣及燥熱補品】</li>
-                <li>【避免去健身房及會造成大量流汗的活動】</li>
-                <li>【避免去泡溫泉、蒸氣室、桑拿】</li>
-                <li>【避免過度曬太陽或去悶熱的場所】</li>
-                <li>【盡量不要讓身體新陳代謝加速、體溫避免上升】</li>
-            </ul>
-            <p style="font-size:13px; color:#d9534f; margin-top:10px; font-weight:bold; text-align:center;">
-                以上會讓奈米鑽石粉排出皮膚表面，影響種鑽石的效果！<br>
-                以上會因新陳代謝加速刺激讓皮膚敏感、易紅腫！
-            </p>
+        <div class="visual-card">
+            <div class="card-header" style="background:#594A42;">⚠️ 種鑽後溫馨提醒</div>
+            <div class="card-body" style="background:#fff;">
+                <ol class="warning-list">
+                    <li>【<strong style="color:#D9534F;">5天內</strong>用純水水紙巾擦拭臉、不可用潔顏粉、洗面乳洗臉】</li>
+                    <li>【避免喝酒及含酒精成分的食物、抽菸】</li>
+                    <li>【避免吃海鮮、甲殼類的食物】</li>
+                    <li>【避免吃辛辣及燥熱補品】</li>
+                    <li>【避免去健身房及會造成大量流汗的活動】</li>
+                    <li>【避免去泡溫泉、蒸氣室、桑拿】</li>
+                    <li>【避免過度曬太陽或去悶熱的場所】</li>
+                    <li>【盡量不要讓身體新陳代謝加速、體溫避免上升】</li>
+                </ol>
+                
+                <div class="warning-highlight">
+                    以上會讓奈米鑽石粉排出皮膚表面，影響種鑽石的效果！<br>
+                    以上會因新陳代謝加速刺激讓皮膚敏感、易紅腫！
+                </div>
+            </div>
         </div>
 
         <div class="return-bar">
@@ -267,114 +323,4 @@
     </div>
 
     <div class="footer-bar hide-on-print">
-        <button class="generate-btn" onclick="generatePrescription()">✨ 產生專屬處方籤</button>
-    </div>
-
-    <script>
-        function switchTab(evt, tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            evt.currentTarget.classList.add('active');
-        }
-
-        function step(btn, change) {
-            let input = btn.parentElement.querySelector('.stepper-val');
-            let printText = btn.parentElement.nextElementSibling;
-            let val = parseInt(input.value) + change;
-            if(val < 1) val = 1; 
-            input.value = val;
-            if(printText && printText.classList.contains('print-text')) printText.textContent = val;
-        }
-
-        const fractions = ['1/4', '1/3', '1/2', '1'];
-        function stepFraction(btn, change) {
-            let input = btn.parentElement.querySelector('.fraction-val');
-            let printText = btn.parentElement.nextElementSibling;
-            let currentIndex = fractions.indexOf(input.value);
-            let newIndex = currentIndex + change;
-            if(newIndex < 0) newIndex = 0;
-            if(newIndex >= fractions.length) newIndex = fractions.length - 1;
-            input.value = fractions[newIndex];
-            if(printText && printText.classList.contains('print-text')) printText.textContent = fractions[newIndex];
-        }
-
-        function checkSkinType() {
-            const isSensitive = document.getElementById('skinSensitive').checked;
-            document.querySelectorAll('.sensitive-item').forEach(item => {
-                const checkbox = item.querySelector('.product-check');
-                if(isSensitive) {
-                    item.classList.add('sensitive-disabled');
-                    if(checkbox) checkbox.checked = false;
-                } else {
-                    item.classList.remove('sensitive-disabled');
-                    if(checkbox) checkbox.checked = true;
-                }
-            });
-        }
-
-        function generatePrescription() {
-            const name = document.getElementById('clientName').value || '貴賓';
-            const skinType = document.getElementById('skinNormal').checked ? '一般肌' : '敏感痘痘肌';
-            const date = new Date().toLocaleDateString('zh-TW');
-            const removeDate = document.getElementById('removeDate').value;
-            
-            // 替換所有動態名稱
-            document.querySelectorAll('.dynamic-username').forEach(el => el.textContent = name);
-
-            let infoText = `為 <strong>${name}</strong> 訂製的專屬保養<br>肌膚狀態：${skinType} | 日期：${date}`;
-            if (removeDate) infoText += `<br><span style="color: #B89B72; font-weight: bold;">📅 預計卸鑽日期：${removeDate}</span>`;
-            document.getElementById('display-client-info').innerHTML = infoText;
-
-            const notes = document.getElementById('clientNotes').value;
-            const notesDisplay = document.getElementById('display-notes');
-            if (notes.trim() !== '') {
-                notesDisplay.innerHTML = `<strong>💡 專屬叮嚀：</strong><br>${notes.replace(/\n/g, '<br>')}`;
-                notesDisplay.style.display = 'block';
-            } else {
-                notesDisplay.style.display = 'none';
-            }
-
-            document.querySelectorAll('select.print-replace').forEach(select => {
-                let dynamicName = select.parentElement.nextElementSibling;
-                if(dynamicName && dynamicName.classList.contains('dynamic-name')) {
-                    dynamicName.textContent = select.value;
-                }
-            });
-
-            document.querySelectorAll('.product-item').forEach(item => {
-                const checkbox = item.querySelector('.product-check');
-                if(checkbox && !checkbox.checked) item.style.display = 'none';
-            });
-
-            // 檢查每個 section-group，如果裡面沒有顯示的 item，就整組隱藏
-            document.querySelectorAll('.section-group').forEach(group => {
-                let hasVisibleItem = false;
-                // 檢查該群組內是否有勾選的產品 或 純文字的 guide-block(不含產品的區塊)
-                let products = group.querySelectorAll('.product-item');
-                if(products.length === 0) {
-                    hasVisibleItem = true; // 純文字區塊強制顯示
-                } else {
-                    products.forEach(item => {
-                        if (item.style.display !== 'none') hasVisibleItem = true;
-                    });
-                }
-                
-                if (!hasVisibleItem) {
-                    group.style.display = 'none';
-                }
-            });
-
-            document.body.classList.add('print-mode');
-            window.scrollTo(0, 0); 
-            setTimeout(() => { alert('✨ 處方籤已生成！\n\n系統已為您統整所有內容。請進行長截圖傳送給客戶。'); }, 300);
-        }
-
-        function returnToEdit() {
-            document.body.classList.remove('print-mode');
-            document.querySelectorAll('.product-item, .section-group').forEach(item => item.style.display = '');
-            window.scrollTo(0, 0);
-        }
-    </script>
-</body>
-</html>
+        <button class="generate-btn" onclick="generatePrescription()">✨ 產生專屬處方籤</button
