@@ -142,7 +142,10 @@
         
         body.print-mode { background-color: #fff; padding-bottom: 40px;}
         body.print-mode .hide-on-print { display: none !important; }
+        
+        /* ✨ 加入金框讓處方籤更有實體卡片感 ✨ */
         body.print-mode .container { max-width: 100%; padding: 50px 30px; border: 1px solid var(--accent-gold-light); outline: 1px solid var(--accent-gold-light); outline-offset: -8px; margin: 15px; background: #fff; }
+        
         body.print-mode .prescription-header { display: block; }
         body.print-mode .visual-card { display: block; }
         body.print-mode .tab-content { display: block !important; opacity: 1; }
@@ -157,12 +160,12 @@
         body.print-mode .print-text { display: inline-block; font-weight: bold; color: var(--accent-gold-dark); font-size: 17px; margin: 0 4px; font-family: Georgia, serif;}
         body.print-mode .product-image-wrapper { border-color: var(--border-color); color: var(--text-light); }
         
-        /* 底部間距與按鈕調整 */
+        /* 底部出處宣告 */
         .system-footer { display: block; text-align: center; color: var(--text-light); font-size: 12px; letter-spacing: 3px; margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 20px; font-weight: 300; margin-bottom: 30px;}
         body.print-mode .system-footer { margin-top: 50px; border-top: none; padding-bottom: 0; margin-bottom: 10px; } 
         
-        /* 讓返回按鈕在截圖模式下依然可以被看見且可點擊 */
-        .return-bar { text-align: center; margin-top: 15px; padding-top: 0; margin-bottom: 20px;}
+        /* 返回按鈕區域 */
+        .return-bar { text-align: center; margin: 30px auto 40px; }
 
         .footer-bar { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 0 20px; text-align: center; z-index: 100; box-shadow: 0 -5px 20px rgba(0,0,0,0.03); border-top: 1px solid var(--border-color); }
         .generate-btn { background-color: var(--primary-dark); color: #fff; border: none; padding: 14px 40px; font-size: 15px; letter-spacing: 3px; border-radius: 30px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(43, 42, 41, 0.2); }
@@ -277,7 +280,7 @@
 
             <div class="section-group">
                 <div class="section-title-wrapper">
-                    <div class="section-title">種鑽後保養步驟 DIAMOND ROUTINE</div>
+                    <div class="section-title">種鑽步驟 DIAMOND ROUTINE</div>
                     <button class="select-all-btn hide-on-print" onclick="toggleSelectAll(this)">一鍵全選</button>
                 </div>
                 <div class="product-item"><div class="product-image-wrapper">擦</div><div class="product-info"><div class="product-name">純水濕紙巾</div><div class="product-usage">保養前，先使用純水濕紙巾輕拭</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check"></div></div>
@@ -349,7 +352,7 @@
         </div>
 
         <div class="visual-card">
-            <div class="card-header"> 💡 日常貼心提醒</div>
+            <div class="card-header"> 💡 種鑽後的貼心提醒</div>
             <div class="card-body">
                 <ol style="padding-left: 20px; font-size: 13px; color: var(--text-main); line-height: 2; margin: 0; letter-spacing: 1px;">
                     <li>【<strong style="color:var(--danger-red);">3-5天內</strong>用純水濕紙巾輕拭臉部、不可用潔顏粉、洗面乳洗臉】</li>
@@ -372,16 +375,14 @@
             本系統由 廖貫坊首席團隊 製作出品
         </div>
 
-        <div class="return-bar" id="returnBar" style="display: none;">
-            <button class="btn-back" onclick="returnToEdit()">BACK 重新編輯</button>
-        </div>
-
+    </div> <div class="return-bar" id="returnBar" style="display: none;">
+        <button class="btn-back" onclick="returnToEdit()">⬅ BACK 重新編輯</button>
     </div>
 
     <button id="scrollTopBtn" class="hide-on-print" onclick="scrollToTop()">TOP</button>
 
     <div class="footer-bar hide-on-print">
-        <button class="generate-btn" onclick="generatePrescription()">產出專屬美的處方籤</button>
+        <button class="generate-btn" onclick="generatePrescription()">產出專屬處方籤</button>
     </div>
 
     <script>
@@ -399,7 +400,6 @@
             let allChecked = Array.from(checkboxes).every(cb => cb.checked);
             
             checkboxes.forEach(cb => {
-                // 如果勾選框不是隱藏或禁用狀態，才跟著全選連動
                 if (!cb.closest('.product-item').classList.contains('sensitive-disabled')) {
                     cb.checked = !allChecked;
                 }
