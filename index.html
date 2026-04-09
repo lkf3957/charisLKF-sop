@@ -222,6 +222,7 @@
             <button class="tab-btn active" onclick="switchTab('tab-basic', this)">日常保養</button>
             <button class="tab-btn" onclick="switchTab('tab-diamond', this)">種鑽期間</button>
             <button class="tab-btn" onclick="switchTab('tab-remove', this)">卸鑽流程</button>
+            <button class="tab-btn" onclick="switchTab('tab-advanced', this)">進階修護</button>
         </div>
 
         <div id="tab-basic" class="tab-content active">
@@ -386,6 +387,27 @@
                 <div class="divider-with-text"><span>防護 PROTECT</span></div>
                 <div class="product-item"><div class="product-image-wrapper" style="border-color:transparent; background: var(--bg-color);">☀️</div><div class="product-info"><div class="product-name">日間保養步驟</div><div class="product-usage" style="color:var(--accent-gold); letter-spacing: 1px;">防曬霜 ➔ BB霜 ➔ CB霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check"></div></div>
                 <div class="product-item"><div class="product-image-wrapper" style="border-color:transparent; background: var(--bg-color);">🌙</div><div class="product-info"><div class="product-name">夜間保養步驟</div><div class="product-usage" style="color:var(--accent-gold); letter-spacing: 1px;">CB霜</div></div><div class="checkbox-wrapper hide-on-print"><input type="checkbox" class="product-check"></div></div>
+            </div>
+        </div>
+
+        <div id="tab-advanced" class="tab-content">
+            <div class="section-group">
+                <div class="section-title-wrapper">
+                    <div class="section-title">進階修護 ADVANCED CARE</div>
+                    <button class="select-all-btn hide-on-print" onclick="toggleSelectAll(this)">一鍵全選</button>
+                </div>
+                
+                <div class="product-item">
+                    <div class="product-image-wrapper">新</div>
+                    <div class="product-info">
+                        <div class="product-name">自訂保養產品</div>
+                        <div class="product-usage">您可以將其他頁籤的產品代碼複製到這裡來新增</div>
+                    </div>
+                    <div class="checkbox-wrapper hide-on-print">
+                        <input type="checkbox" class="product-check">
+                    </div>
+                </div>
+                
             </div>
         </div>
 
